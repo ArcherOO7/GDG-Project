@@ -1,0 +1,3 @@
+BONUS QUESTION ANSWER
+Stationary Stokcs: HDFCLIFE.NS and ITC.NS
+Non-Stationary Stocks: RELIANCE.NS and ADANIPORTS.NS
