@@ -10,8 +10,6 @@ data = {
     "EPS": [],
     "52W High": [],
     "52W Low": [],
-    # "Upper Circuit": [],
-    # "Lower Circuit": [],
     "LTP": [],
     "Market Cap": [],
     "Volume": [],
@@ -27,8 +25,8 @@ with open("STOCKS.txt", "r") as file:
         words = line.split()
         SYMBOL0 = words[0]
         SYMBOL = f"{SYMBOL0}.NS"
-        # SYMBOL = "RELIANCE.NS"  # Make sure you're using the correct ticker symbol
-        # SYMBOL0 = "RELIANCE"  # Make sure you're using the correct ticker symbol
+        # SYMBOL = "RELIANCE.NS"l try karne ke liye use kiye they
+        # SYMBOL0 = "RELIANCE"
         url = f"https://www.screener.in/company/{SYMBOL0}/"
         url2 = f"https://www.nseindia.com/get-quotes/equity?symbol={SYMBOL0}"
         response = requests.get(url, headers=headers, timeout=15)
@@ -49,9 +47,7 @@ with open("STOCKS.txt", "r") as file:
         # print(f"PE is {PE}")
 
         # EPS
-        EPS = stock.info.get(
-            "regularMarketEPS", "NaN"
-        )  # Using .get() to avoid KeyError
+        EPS = stock.info.get("regularMarketEPS", "NaN")
         # print(f"EPS is {EPS}")
 
         # 52W HIGH LOW
@@ -149,7 +145,6 @@ with open("STOCKS.txt", "r") as file:
             RETURN5 = "NaN"
         # print(f"5y is {RETURN5}")
 
-        # Append data to the dictionary
         data["Stock Name"].append(SYMBOL)
         data["PE"].append(PE)
         data["EPS"].append(EPS)
@@ -163,15 +158,15 @@ with open("STOCKS.txt", "r") as file:
         data["1Y Return"].append(RETURN1)
         data["5Y Return"].append(RETURN5)
 
-        # Print DataFrame
 
-# Convert to DataFrame
 df = pd.DataFrame(data)
 print(pd.DataFrame(data))
-# Save as CSV
+
+
+# FOR SAVING AS OTHER FILES
 # df.to_csv("output.csv", index=False)
 
-# Save as Excel
+
 # df.to_excel("output.xlsx", index=False)
 # with open("DATA.txt", "w") as file:
 #     for key, value in data.items():
