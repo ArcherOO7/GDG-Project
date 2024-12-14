@@ -164,15 +164,15 @@ with open("STOCKS.txt", "r") as file:
         data["5Y Return"].append(RETURN5)
 
         # Print DataFrame
-        # print(pd.DataFrame(data))
+
 # Convert to DataFrame
 df = pd.DataFrame(data)
-
+print(pd.DataFrame(data))
 # Save as CSV
-df.to_csv("output.csv", index=False)
+# df.to_csv("output.csv", index=False)
 
 # Save as Excel
-df.to_excel("output.xlsx", index=False)
+# df.to_excel("output.xlsx", index=False)
 # with open("DATA.txt", "w") as file:
 #     for key, value in data.items():
 #         file.write(f"{key}: {value}\n")
